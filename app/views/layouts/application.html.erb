@@ -20,6 +20,21 @@
      <li><%= link_to "Privacy", pages_privacy_path %></li>
     </ul>
   </div>
+  <ul class="navbar-nav navbar-right">
+    <li class="nav-item dropdown"></li>
+      <a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+              <%= link_to('My Recipies', pages_userRecipes_path, class:"dropdown-item")  %>  
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"dropdown-item") %> 
+
+              <%= "      Hello!"%>  
+          <% else %>
+            <%= link_to('Login', new_user_session_path, class:"dropdown-item")  %>  
+          <% end %>   
+      </div>  
 </nav>
   <body>
     <%= yield %>

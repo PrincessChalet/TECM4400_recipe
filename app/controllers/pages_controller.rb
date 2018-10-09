@@ -4,4 +4,9 @@ class PagesController < ApplicationController
 
 	def privacy
 	end
+
+	def userRecipes
+    	@recipes = Recipe.where(user: current_user)
+    	render "recipes/index"
+	end
 end
